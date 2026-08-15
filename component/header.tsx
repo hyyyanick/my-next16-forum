@@ -1,5 +1,8 @@
+'use client'
+
 import Link from "next/link";
 import Image from 'next/image'
+import {logout} from "@/actions/auth";
 
 export default function Header() {
     return (
@@ -11,6 +14,7 @@ export default function Header() {
                 <Link href='/profile' className="font-medium ml-auto rounded-lg px-3 py-2 text-white hover:bg-gray-100 hover:text-gray-900">
                     Yiyan HU
                 </Link>
+                <button className="text-white" onClick={logout}>Logout</button>
             </nav>
         </header>
     )

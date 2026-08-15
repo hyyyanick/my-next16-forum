@@ -1,7 +1,7 @@
 'use server'
 
-import { SignupFormSchema, FormState } from '@/app/lib/definitions'
-import {createSession} from "@/app/lib/session";
+import { SignupFormSchema, FormState } from '@/lib/definitions'
+import {createSession, deleteSession} from "@/lib/session";
 import {redirect} from "next/navigation";
 
 export async function signup(state: FormState, formData: FormData) {
@@ -28,4 +28,9 @@ export async function signup(state: FormState, formData: FormData) {
     await createSession(user);
 
     redirect('/');
+}
+
+export async function logout() {
+    await deleteSession();
+    redirect('/login');
 }
